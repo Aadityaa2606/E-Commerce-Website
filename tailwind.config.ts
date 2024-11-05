@@ -12,7 +12,8 @@ const config: Config = {
         background: "#FFFFFF",
         secondary: "#F5F5F5",
         text2: "#7d8184",
-
+        accent: "#db4444",
+        borderColor: "#0000004D",
         foreground: "var(--foreground)",
       },
     },

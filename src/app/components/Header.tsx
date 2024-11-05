@@ -23,8 +23,8 @@ function Header() {
         </div>
       </div>
 
-      <div className="border-b-[0.5px] h-24 flex items-center text-black justify-around">
-        <p className="text-2xl font-bold">Exclusive</p>
+      <div className="border-b-[0.5px] h-24 flex items-end pb-4 text-black justify-around">
+        <p className="text-2xl font-black">Exclusive</p>
         <div className="flex gap-11">
           <Link href="/"> Home </Link>
           <Link href="/contact"> Contact </Link>

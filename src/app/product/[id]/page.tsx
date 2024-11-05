@@ -17,7 +17,12 @@ interface Product {
   };
 }
 
-const ProductPage = async ({ params }: { params: { id: string } }) => {
+// Define params interface for product page
+interface Params {
+  id: string;
+}
+
+const ProductPage = async ({ params }: { params: Params }) => {
   // Fetch the product data directly in the server-side component
   const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
 
@@ -33,7 +38,6 @@ const ProductPage = async ({ params }: { params: { id: string } }) => {
 
 const ProductDetails = ({ product }: { product: Product }) => {
   const productImages = Array(4).fill(product.image);
-
 
   return (
     <div className="container mx-auto px-4 py-8">

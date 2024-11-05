@@ -1,6 +1,5 @@
 import { useRouter } from "next/navigation";
 import { useState, ChangeEvent } from "react";
-import { IoIosSearch } from "react-icons/io";
 import Image from "next/image";
 
 interface iDefault {
@@ -32,7 +31,7 @@ export const SearchInput = ({ defaultValue }: iDefault) => {
     if (!inputValue) return router.push("/");
   };
 
-  const handleKeyPress = (event: { key: any }) => {
+  const handleKeyPress = (event: { key: string }) => {
     if (event.key === "Enter") return handleSearch();
   };
 

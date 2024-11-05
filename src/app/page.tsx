@@ -1,43 +1,33 @@
-// src/app/page.tsx
-
 import { Category } from "./components/HomeScreen/Category";
 import { FlashDeals } from "./components/HomeScreen/FlashDeals";
 import HeroSection from "./components/HomeScreen/HeroSection";
 import NewArrival from "./components/HomeScreen/NewArrival";
-
-// Define the types for product and category data
-interface Product {
-  imageSrc: string;
-  discount: number;
-  name: string;
-  currentPrice: number;
-  originalPrice: number;
-  rating: number;
-  reviews: number;
-  persistentAddToCart: boolean;
-  isNew: boolean;
-  inWishlist: boolean;
-}
 
 interface CategoryType {
   name: string;
   imageSrc: string;
 }
 
-interface HomeProps {
-  productData: Product[];
-  categoryData: CategoryType[];
-  endDate: string;
+interface ProductType {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
 }
 
 // Server Component (without getServerSideProps)
-const Home: React.FC<HomeProps> = async () => {
+const Home = async () => {
   // Fetch FlashDeals product data directly
   const res = await fetch("https://fakestoreapi.com/products?limit=10");
   const products = await res.json();
 
   // Map the fetched products to match the expected structure
-  const productData = products.map((product: any) => ({
+
+  const productData = products.map((product: ProductType) => ({
     imageSrc: product.image,
     discount: 40, // Default discount
     name: product.title,
@@ -66,7 +56,6 @@ const Home: React.FC<HomeProps> = async () => {
     { name: "Headphones", imageSrc: "/categories/Category-Headphone.svg" },
     { name: "Gaming", imageSrc: "/categories/Category-Gamepad.svg" },
   ];
-
 
   const endDate = new Date("2024-11-07T23:59:59");
 

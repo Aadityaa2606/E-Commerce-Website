@@ -3,6 +3,7 @@ import Image from "next/image";
 import { AiOutlineHeart, AiOutlineEye } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import Link from "next/link";
+import { addToCart } from "../lib/cartUtils";
 // Define the props interface for the ProductCard
 interface ProductCardProps {
   imageSrc: string;
@@ -29,7 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   reviews,
   persistentAddToCart = false,
   inWishlist = false,
-  productId
+  productId,
 }) => {
   // Helper function to render star ratings
   const renderStars = () => {
@@ -103,6 +104,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 ? "flex"
                 : "hidden group-hover:flex group-hover:opacity-100 opacity-0"
             }`}
+            onClick={() => addToCart(productId)}
           >
             Add To Cart
           </div>

@@ -33,8 +33,12 @@ function Header() {
         </div>
         <div className="flex gap-2">
           <SearchInput defaultValue="" />
-          <Image src="/Wishlist.svg" alt="wishlist" width={28} height={28} />
-          <Image src="/cart.svg" alt="cart" width={25} height={25} />
+          <Link href="/wishlist" className="inline-flex">
+            <Image src="/Wishlist.svg" alt="wishlist" width={28} height={28} />
+          </Link>
+          <Link href="/cart" className="inline-flex">
+            <Image src="/cart.svg" alt="cart" width={25} height={25} />
+          </Link>
         </div>
       </div>
     </div>
